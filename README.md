@@ -17,7 +17,7 @@ Visit [http://localhost:3000/] in your browser and you should see `Hello world!`
 
 ## Copy over your JavaScript Basics code
 
-:important: **Important!**
+:rotating_light: **Important!**
 
 This exercise makes use of your previous `javascript-basics` code. Copy the files from that project's `src/` folder into a new `lib/` directory in this repository's `src` directory. You should end up with the following file structure in this project:
 
