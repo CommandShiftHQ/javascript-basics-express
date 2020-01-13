@@ -1,21 +1,36 @@
-# Express Bootstrap
-
-This project is a boilerplate for Node.js/Express applications. It also comes included with Jest, and Supertest for end-to-end testing.
+# JavaScript Basics in Express
 
 ## Getting started
 
 Ensure your Visual Studio Code application is up to date, and that you have the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed and enabled.
 
-Replace `your-project-folder-name` with the folder name you wish to create for your project and run the below inside your `Projects` folder.
+Run the commands below inside your `Projects` folder.
 
 ```bash
-git clone git@github.com:MCRcodes/express-bootstrap.git your-project-folder-name
+git clone git@github.com:MCRcodes/javascript-basics-express.git
 cd your-project-folder-name
 npm install
 npm start
 ```
 
 Visit [http://localhost:3000/] in your browser and you should see `Hello world!`. You can dive in and start coding your own routes in `src/app.js`.
+
+## Copy over your JavaScript Basics code
+
+:important: **Important!**
+
+This exercise makes use of your previous `javascript-basics` code. Copy the files from that project's `src/` folder into a new `lib/` directory in this repository's `src` directory. You should end up with the following file structure in this project:
+
+```
+src
+├── app.js
+└── lib
+    ├── arrays.js
+    ├── booleans.js
+    ├── numbers.js
+    ├── objects.js
+    └── strings.js
+```
 
 ## Running tests
 
