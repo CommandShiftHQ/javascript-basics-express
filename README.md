@@ -10,10 +10,7 @@ Run the commands below inside your `Projects` folder.
 git clone git@github.com:MCRcodes/javascript-basics-express.git
 cd your-project-folder-name
 npm install
-npm start
 ```
-
-Visit [http://localhost:3000/](http://localhost:3000/) in your browser and you should see `Hello world!`. You can dive in and start coding your own routes in `src/app.js`.
 
 ## Copy over your JavaScript Basics code
 
