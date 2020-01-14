@@ -8,7 +8,7 @@ describe('/strings', () => {
         .get('/strings/hello/world')
         .then(res => {
           expect(res.status).toEqual(200);
-          expect(res.body).toEqual({ result: 'Hello world!' });
+          expect(res.body).toEqual({ result: 'Hello, world!' });
           done();
         });
     });
