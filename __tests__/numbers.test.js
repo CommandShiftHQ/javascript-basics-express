@@ -215,7 +215,7 @@ describe('/numbers', () => {
 
     xit('gives the remainder of dividing 0 by a number', done => {
       request(app)
-        .post('/numbers/remainer')
+        .post('/numbers/remainder')
         .send({ a: 0, b: 10 })
         .then(res => {
           expect(res.status).toEqual(200);
