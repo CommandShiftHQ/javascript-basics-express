@@ -25,22 +25,18 @@ app.get('/strings/lower/:basename', (req, res) => {
   res.json({ result: `${word}` }).sendStatus(200);
 });
 
-/*app.get('/strings/first-characters/:basename', (req, res) => {
-  const word = strings.firstCharacter(req.params.basename);
-  // res.status(200);
-
-  res.json({ result: `${word}` }).sendStatus(200);
-});*/
 
 app.get('/strings/first-characters/:basename', (req, res) => {
 
-  if (req.query){
-      let n = parseInt(Object.values(req.query).join());
+  if (req.query.length){
+
+    let n = parseInt(Object.values(req.query).join());
     let word = strings.firstCharacters(req.params.basename, n);
     res.json({ result: `${word}` }).sendStatus(200);
 
   }
   else {
+     // let n = 1;
     let word = strings.firstCharacter(req.params.basename);
     res.json({ result: `${word}` }).sendStatus(200);
   }
