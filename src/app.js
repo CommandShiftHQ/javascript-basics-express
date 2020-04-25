@@ -45,7 +45,9 @@ app.get('/numbers/add/:param1/and/:param2', (req, res) => {
   else{
     res.status(200).json({ result: sum });
   }
+  //TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
   
 });
+
 
 module.exports = app;
