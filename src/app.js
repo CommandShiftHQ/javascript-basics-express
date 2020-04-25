@@ -49,5 +49,19 @@ app.get('/numbers/add/:param1/and/:param2', (req, res) => {
   
 });
 
-
+app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
+    const num1 = parseInt(req.params.param1);
+    const num2 = parseInt(req.params.param2);
+    const diff = numbers.subtract(num2, num1);
+    
+    if (Number.isNaN(diff)){
+      res.status(400).json({ error: 'Parameters must be valid numbers.'});
+  
+    }
+    else{
+      res.status(200).json({ result: diff });
+    }
+    //TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
+    
+  });
 module.exports = app;
