@@ -190,11 +190,11 @@ describe('/numbers', () => {
     });
   });
 
-  describe('GET /remainder?a={number}&b={number}', () => {
+  describe('POST /remainder', () => {
     xit('gives the remainder of dividing 18 by 5', done => {
       request(app)
         .post('/numbers/remainder')
-        .query({ a: 18, b: 5 })
+        .send({ a: 18, b: 5 })
         .then(res => {
           expect(res.status).toEqual(200);
           expect(res.body).toEqual({ result: 3 });
