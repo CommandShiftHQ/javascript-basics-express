@@ -6,10 +6,10 @@ const app = express();
 
 app.get('/strings/hello/:basename', (req, res) => {
     const word = strings.sayHello(req.params.basename);
+    //res;
 
-    res.json({"result": `${word}`});
+    res.json({"result": `${word}`}).sendStatus(200);
 
-    res.sendStatus(200);
     
 });
 
