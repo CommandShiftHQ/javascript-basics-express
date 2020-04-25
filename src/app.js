@@ -36,15 +36,16 @@ app.get('/strings/first-characters/:basename', (req, res) => {
 app.get('/numbers/add/:param1/and/:param2', (req, res) => {
   const num1 = parseInt(req.params.param1);
   const num2 = parseInt(req.params.param2);
-
-  if (typeof num1 && typeof num2 === "number") {
-    const num = numbers.add(num1, num2);
-
+  const num = numbers.add(num1, num2);
+    
+  if (typeof num === "number") {
     res.send({ result: num }).sendStatus(200);
-  } 
-  else {
-    res.send({ error: 'Parameters must be valid numbers.' }).sendStatus(400);
-  }
+    }
+    else {
+
+    res.json({ error: 'Parameters must be valid numbers.' }).sendStatus(400);
+    }
+  
 });
 
 module.exports = app;
