@@ -1,44 +1,49 @@
 const express = require('express');
 const strings = require('./lib/strings.js');
+const numbers = require('./lib/numbers.js');
 
 const app = express();
-// const word = strings.sayHello();
 
 app.get('/strings/hello/:basename', (req, res) => {
   const word = strings.sayHello(req.params.basename);
-  // res;
 
   res.json({ result: `${word}` }).sendStatus(200);
 });
 
 app.get('/strings/upper/:basename', (req, res) => {
   const word = strings.uppercase(req.params.basename);
-  // res.status(200);
 
   res.json({ result: `${word}` }).sendStatus(200);
 });
 
 app.get('/strings/lower/:basename', (req, res) => {
   const word = strings.lowercase(req.params.basename);
-  // res.status(200);
 
   res.json({ result: `${word}` }).sendStatus(200);
 });
 
-
 app.get('/strings/first-characters/:basename', (req, res) => {
-
-  if (req.query.length){
-
-    let n = parseInt(Object.values(req.query).join());
-    let word = strings.firstCharacters(req.params.basename, n);
+  if (req.query.length) {
+    const n = parseInt(Object.values(req.query).join());
+    const word = strings.firstCharacters(req.params.basename, n);
     res.json({ result: `${word}` }).sendStatus(200);
-
+  } else {
+    const word = strings.firstCharacter(req.params.basename);
+    res.json({ result: `${word}` }).sendStatus(200);
   }
+});
+//-----------------------------------------------
+app.get('/numbers/add/:param1/and/:param2', (req, res) => {
+  const num1 = parseInt(req.params.param1);
+  const num2 = parseInt(req.params.param2);
+
+  if (typeof num1 && typeof num2 === "number") {
+    const num = numbers.add(num1, num2);
+
+    res.send({ result: num }).sendStatus(200);
+  } 
   else {
-     // let n = 1;
-    let word = strings.firstCharacter(req.params.basename);
-    res.json({ result: `${word}` }).sendStatus(200);
+    res.send({ error: 'Parameters must be valid numbers.' }).sendStatus(400);
   }
 });
 
