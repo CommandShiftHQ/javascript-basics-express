@@ -36,15 +36,15 @@ app.get('/strings/first-characters/:basename', (req, res) => {
 app.get('/numbers/add/:param1/and/:param2', (req, res) => {
   const num1 = parseInt(req.params.param1);
   const num2 = parseInt(req.params.param2);
-  const num = numbers.add(num1, num2);
-    
-  if (typeof num === "number") {
-    res.send({ result: num }).sendStatus(200);
-    }
-    else {
+  const sum = numbers.add(num1, num2);
+  
+  if (Number.isNaN(sum)){
+    res.status(400).json({ error: 'Parameters must be valid numbers.'});
 
-    res.json({ error: 'Parameters must be valid numbers.' }).sendStatus(400);
-    }
+  }
+  else{
+    res.status(200).json({ result: sum });
+  }
   
 });
 
