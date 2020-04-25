@@ -25,12 +25,12 @@ app.get('/strings/lower/:basename', (req, res) => {
   res.json({ result: `${word}` }).sendStatus(200);
 });
 
-app.get('/strings/first-characters/:basename', (req, res) => {
+/*app.get('/strings/first-characters/:basename', (req, res) => {
   const word = strings.firstCharacter(req.params.basename);
   // res.status(200);
 
   res.json({ result: `${word}` }).sendStatus(200);
-});
+});*/
 
 app.get('/strings/first-characters/:basename', (req, res) => {
 
@@ -40,7 +40,7 @@ app.get('/strings/first-characters/:basename', (req, res) => {
     res.json({ result: `${word}` }).sendStatus(200);
 
   }
-  else{
+  else {
     let word = strings.firstCharacter(req.params.basename);
     res.json({ result: `${word}` }).sendStatus(200);
   }
