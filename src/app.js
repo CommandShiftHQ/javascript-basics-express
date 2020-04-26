@@ -93,5 +93,21 @@ app.post('/numbers/divide', (req, res) => {
     res.status(200).json({ result: div });
   }
 });
+//----------------------------------------------------
+app.post('/numbers/remainder', (req, res) => {
+  const arr = Object.values(req.body);
+  const rem = numbers.remainder(arr[0], arr[1]);
+  if (arr[1] === 0) {
+    res.status(400).json({ error: 'Unable to divide by 0.' });
+  }
+  if (arr.length !== 2) {
+    res.status(400).json({ error: 'Parameters "a" and "b" are required.' });
+  }
+  if (Number.isNaN(rem)) {
+    res.status(400).json({ error: 'Parameters must be valid numbers.' });
+  } else {
+    res.status(200).json({ result: rem });
+  }
+});
 
 module.exports = app;
