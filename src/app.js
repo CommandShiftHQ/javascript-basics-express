@@ -1,6 +1,7 @@
 const express = require('express');
 const strings = require('./lib/strings.js');
 const numbers = require('./lib/numbers.js');
+const bool = require('./lib/booleans.js');
 
 const app = express();
 app.use(express.json()); // FOR POST
@@ -109,5 +110,14 @@ app.post('/numbers/remainder', (req, res) => {
     res.status(200).json({ result: rem });
   }
 });
+//----------------------------------------------------
+app.post('/booleans/negate', (req, res) => {
+  //  const val = Object.values(req.body.value);
+    const neg = bool.negate(req.body.value);
+
+    res.status(200).json({ result: neg });
+
+});
+
 
 module.exports = app;

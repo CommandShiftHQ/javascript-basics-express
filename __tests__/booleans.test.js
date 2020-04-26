@@ -3,7 +3,7 @@ const app = require('../src/app');
 
 describe('/booleans', () => {
   describe('POST /negate', () => {
-    xit('returns false when passed true', done => {
+    it('returns false when passed true', done => {
       request(app)
         .post('/booleans/negate')
         .send({ value: true })
@@ -14,7 +14,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns true when passed false', done => {
+    it('returns true when passed false', done => {
       request(app)
         .post('/booleans/negate')
         .send({ value: false })
