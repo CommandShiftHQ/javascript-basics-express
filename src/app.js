@@ -46,6 +46,7 @@ app.get('/numbers/add/:param1/and/:param2', (req, res) => {
   }
   // TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
 });
+//--------------------------------------------------
 
 app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
   const num1 = parseInt(req.params.param1);
@@ -59,7 +60,7 @@ app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
   }
   // TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
 });
-
+//--------------------------------------------------
 app.post('/numbers/multiply', (req, res) => {
   const arr = Object.values(req.body);
 
@@ -74,4 +75,23 @@ app.post('/numbers/multiply', (req, res) => {
     res.status(200).json({ result: prod });
   }
 });
+//----------------------------------------------------
+
+app.post('/numbers/divide', (req, res) => {
+  const arr = Object.values(req.body);
+  const div = numbers.divide(arr[0], arr[1]);
+
+  if (arr[1] === 0) {
+    res.status(400).json({ error: 'Unable to divide by 0.' });
+  }
+  if (arr.length !== 2) {
+    res.status(400).json({ error: 'Parameters "a" and "b" are required.' });
+  }
+  if (Number.isNaN(div)) {
+    res.status(400).json({ error: 'Parameters "a" and "b" must be valid numbers.' });
+  } else {
+    res.status(200).json({ result: div });
+  }
+});
+
 module.exports = app;
