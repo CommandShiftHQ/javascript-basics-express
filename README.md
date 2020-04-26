@@ -1,8 +1,6 @@
 # JavaScript Basics in Express
 
-## Getting started
-
-Ensure your Visual Studio Code application is up to date, and that you have the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed and enabled.
+You need up to date Visual Studio Code application with the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed and enabled.
 
 
 ```bash
