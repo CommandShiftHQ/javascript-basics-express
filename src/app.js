@@ -111,8 +111,7 @@ app.post('/numbers/remainder', (req, res) => {
 });
 //----------------------------------------------------
 app.post('/booleans/negate', (req, res) => {
-
-    const neg = bool.negate(req.body.value);
+  const neg = bool.negate(req.body.value);
 
   res.status(200).json({ result: neg });
 });
@@ -123,10 +122,10 @@ app.post('/booleans/truthiness', (req, res) => {
 });
 
 app.get('/booleans/is-odd/:param1', (req, res) => {
-    const odder = bool.isOdd(req.params.param1);
-    res.status(200).json({ result : odder });
-
+  const odder = parseInt(req.params.param1);
+  if (Number.isNaN(odder)) {
+    res.status(400).json({ error: 'Parameter must be a number.' });
+  } else res.status(200).json({ result: bool.isOdd(odder) });
 });
-
 
 module.exports = app;

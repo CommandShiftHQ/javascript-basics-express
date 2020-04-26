@@ -104,7 +104,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('errors when the value is not numeric', done => {
+    it('errors when the value is not numeric', done => {
       request(app)
         .get('/booleans/is-odd/bicycle')
         .then(res => {
