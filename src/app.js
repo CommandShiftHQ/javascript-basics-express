@@ -2,8 +2,10 @@ const express = require('express');
 const strings = require('./lib/strings.js');
 const numbers = require('./lib/numbers.js');
 const bool = require('./lib/booleans.js');
+const arr = require('./lib/arrays.js');
 
 const app = express();
+
 app.use(express.json()); // FOR POST
 
 app.get('/strings/hello/:basename', (req, res) => {
@@ -131,8 +133,13 @@ app.get('/booleans/is-odd/:param1', (req, res) => {
 app.get('/booleans/:param1/starts-with/:param2', (req, res) => {
   if (req.params.param2.length > 1) {
     res.status(400).json({ error: 'Parameter "character" must be a single character.' });
-    
   } else res.status(200).json({ result: bool.startsWith(req.params.param2, req.params.param1) });
 });
+//----------------------------------------------------
+app.post('/arrays/to-string', (req, res) => {
+  // const newarr = Object.values(req.body);
+  const stringified = arr.arrayToCSVString(req.body.array);
 
+  res.status(200).json({ result: stringified });
+});
 module.exports = app;
