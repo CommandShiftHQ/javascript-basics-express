@@ -17,7 +17,7 @@ npm install express --save
 
 
 This exercise makes use of `javascript-basics` code. 
-You will find the code for this here: https://github.com/SanMasood/javascript-basics
+You will find the code for this here: https://github.com/SanMasood/javascript-basics (Thank you [@TimmyDDthe1st](https://github.com/TimmyDDthe1st) for letting me piggyback on some of yours! )
 
 Copy the files from that project's `src/` folder into a new `lib/` directory in this repository's `src` directory. You should end up with the following file structure:
 
@@ -38,4 +38,5 @@ You can run tests with the `npm test` command.
 
 ## Remember: Credits
 
-Copyright Manchester Codes. Thank you Gaz & Ian for your invaluable help.
+Copyright [Manchester Codes](https://github.com/MCRcodes). 
+Thank you Gaz & [Ian](https://github.com/ian-antking) for your invaluable help.
