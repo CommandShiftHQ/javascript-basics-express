@@ -3,7 +3,7 @@ const strings = require('./lib/strings.js');
 const numbers = require('./lib/numbers.js');
 
 const app = express();
-app.use(express.json()); //FOR POST
+app.use(express.json()); // FOR POST
 
 app.get('/strings/hello/:basename', (req, res) => {
   const word = strings.sayHello(req.params.basename);
@@ -61,19 +61,13 @@ app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
 });
 
 app.post('/numbers/multiply', (req, res) => {
+  const arr = Object.values(req.body);
 
-    const arr = Object.values(req.body);
-
-    const prod = numbers.multiply(arr[0], arr[1]);
-    if (prod.length === 2){
-        res.status(200).json({ result : prod });
-        //res.json({ result: `${prod}` }).sendStatus(200);
-    }
-    else{
-
-    }
-
-
-
+  const prod = numbers.multiply(arr[0], arr[1]);
+  if (arr.length !== 2) {
+    res.status(400).json({ error: 'Parameters "a" and "b" are required.' });
+  } else {
+    res.status(200).json({ result: prod });
+  }
 });
 module.exports = app;
