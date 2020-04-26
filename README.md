@@ -36,7 +36,7 @@ src
 
 You can run tests with the `npm test` command.
 
-## Remember: Credits
+## Credits
 
 Copyright [Manchester Codes](https://github.com/MCRcodes). 
 Thank you Gaz & [Ian](https://github.com/ian-antking) for your invaluable help.
