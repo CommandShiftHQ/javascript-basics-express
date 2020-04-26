@@ -113,11 +113,14 @@ app.post('/numbers/remainder', (req, res) => {
 //----------------------------------------------------
 app.post('/booleans/negate', (req, res) => {
   //  const val = Object.values(req.body.value);
-    const neg = bool.negate(req.body.value);
+  const neg = bool.negate(req.body.value);
 
-    res.status(200).json({ result: neg });
-
+  res.status(200).json({ result: neg });
 });
 
+app.post('/booleans/truthiness', (req, res) => {
+  const tr = bool.truthiness(req.body.value);
+  res.status(200).json({ result: tr });
+});
 
 module.exports = app;
