@@ -128,4 +128,11 @@ app.get('/booleans/is-odd/:param1', (req, res) => {
   } else res.status(200).json({ result: bool.isOdd(odder) });
 });
 
+app.get('/booleans/:param1/starts-with/:param2', (req, res) => {
+  if (req.params.param2.length > 1) {
+    res.status(400).json({ error: 'Parameter "character" must be a single character.' });
+    
+  } else res.status(200).json({ result: bool.startsWith(req.params.param2, req.params.param1) });
+});
+
 module.exports = app;

@@ -116,7 +116,7 @@ describe('/booleans', () => {
   });
 
   describe('GET /{string}/starts-with/{character}', () => {
-    xit('returns true when the string starts with the given character', done => {
+    it('returns true when the string starts with the given character', done => {
       request(app)
         .get('/booleans/cat/starts-with/c')
         .then(res => {
@@ -126,7 +126,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when the string does not start with the given character', done => {
+    it('returns false when the string does not start with the given character', done => {
       request(app)
         .get('/booleans/cat/starts-with/d')
         .then(res => {
@@ -136,7 +136,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('errors when the second argument is not a single character', done => {
+    it('errors when the second argument is not a single character', done => {
       request(app)
         .get('/booleans/cat/starts-with/cat')
         .then(res => {
