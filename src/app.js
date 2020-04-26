@@ -59,7 +59,6 @@ app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
   } else {
     res.status(200).json({ result: diff });
   }
-  // TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
 });
 //--------------------------------------------------
 app.post('/numbers/multiply', (req, res) => {
@@ -112,8 +111,8 @@ app.post('/numbers/remainder', (req, res) => {
 });
 //----------------------------------------------------
 app.post('/booleans/negate', (req, res) => {
-  //  const val = Object.values(req.body.value);
-  const neg = bool.negate(req.body.value);
+
+    const neg = bool.negate(req.body.value);
 
   res.status(200).json({ result: neg });
 });
@@ -122,5 +121,12 @@ app.post('/booleans/truthiness', (req, res) => {
   const tr = bool.truthiness(req.body.value);
   res.status(200).json({ result: tr });
 });
+
+app.get('/booleans/is-odd/:param1', (req, res) => {
+    const odder = bool.isOdd(req.params.param1);
+    res.status(200).json({ result : odder });
+
+});
+
 
 module.exports = app;

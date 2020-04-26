@@ -84,7 +84,7 @@ describe('/booleans', () => {
   });
 
   describe('GET /is-odd/{number}', () => {
-    xit('returns true when passed an odd number', done => {
+    it('returns true when passed an odd number', done => {
       request(app)
         .get('/booleans/is-odd/7')
         .then(res => {
@@ -94,7 +94,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed an even number', done => {
+    it('returns false when passed an even number', done => {
       request(app)
         .get('/booleans/is-odd/84')
         .then(res => {
