@@ -3,6 +3,7 @@ const strings = require('./lib/strings.js');
 const numbers = require('./lib/numbers.js');
 
 const app = express();
+app.use(express.json()); //FOR POST
 
 app.get('/strings/hello/:basename', (req, res) => {
   const word = strings.sayHello(req.params.basename);
@@ -37,31 +38,42 @@ app.get('/numbers/add/:param1/and/:param2', (req, res) => {
   const num1 = parseInt(req.params.param1);
   const num2 = parseInt(req.params.param2);
   const sum = numbers.add(num1, num2);
-  
-  if (Number.isNaN(sum)){
-    res.status(400).json({ error: 'Parameters must be valid numbers.'});
 
-  }
-  else{
+  if (Number.isNaN(sum)) {
+    res.status(400).json({ error: 'Parameters must be valid numbers.' });
+  } else {
     res.status(200).json({ result: sum });
   }
-  //TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
-  
+  // TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
 });
 
 app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
-    const num1 = parseInt(req.params.param1);
-    const num2 = parseInt(req.params.param2);
-    const diff = numbers.subtract(num2, num1);
-    
-    if (Number.isNaN(diff)){
-      res.status(400).json({ error: 'Parameters must be valid numbers.'});
-  
+  const num1 = parseInt(req.params.param1);
+  const num2 = parseInt(req.params.param2);
+  const diff = numbers.subtract(num2, num1);
+
+  if (Number.isNaN(diff)) {
+    res.status(400).json({ error: 'Parameters must be valid numbers.' });
+  } else {
+    res.status(200).json({ result: diff });
+  }
+  // TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
+});
+
+app.post('/numbers/multiply', (req, res) => {
+
+    const arr = Object.values(req.body);
+
+    const prod = numbers.multiply(arr[0], arr[1]);
+    if (prod.length === 2){
+        res.status(200).json({ result : prod });
+        //res.json({ result: `${prod}` }).sendStatus(200);
     }
     else{
-      res.status(200).json({ result: diff });
+
     }
-    //TO REMEMBER: sendStatus() closes the connection. You can only send body before it, not after. Instead use status to send body with or after status.
-    
-  });
+
+
+
+});
 module.exports = app;

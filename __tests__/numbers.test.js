@@ -77,7 +77,7 @@ describe('/numbers', () => {
   });
 
   describe('POST /multiply', () => {
-    xit('multiplies two numbers', done => {
+    it('multiplies two numbers', done => {
       request(app)
         .post('/numbers/multiply')
         .send({ a: 10, b: 3 })
@@ -88,7 +88,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('multiplies stringified numbers', done => {
+    it('multiplies stringified numbers', done => {
       request(app)
         .post('/numbers/multiply')
         .send({ a: '-4', b: '-9' })
@@ -190,11 +190,11 @@ describe('/numbers', () => {
     });
   });
 
-  describe('GET /remainder?a={number}&b={number}', () => {
+  describe('POST /remainder', () => {
     xit('gives the remainder of dividing 18 by 5', done => {
       request(app)
         .post('/numbers/remainder')
-        .query({ a: 18, b: 5 })
+        .send({ a: 18, b: 5 })
         .then(res => {
           expect(res.status).toEqual(200);
           expect(res.body).toEqual({ result: 3 });
@@ -215,7 +215,7 @@ describe('/numbers', () => {
 
     xit('gives the remainder of dividing 0 by a number', done => {
       request(app)
-        .post('/numbers/remainer')
+        .post('/numbers/remainder')
         .send({ a: 0, b: 10 })
         .then(res => {
           expect(res.status).toEqual(200);
