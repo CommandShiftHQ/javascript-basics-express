@@ -66,8 +66,15 @@ app.post('/numbers/multiply', (req, res) => {
   const prod = numbers.multiply(arr[0], arr[1]);
   if (arr.length !== 2) {
     res.status(400).json({ error: 'Parameters "a" and "b" are required.' });
-  } else {
+  }
+
+  if (Number.isNaN(prod)) {
+    res.status(400).json({ error: 'Parameters "a" and "b" must be valid numbers.' });
+  } 
+  
+  else {
     res.status(200).json({ result: prod });
   }
+
 });
 module.exports = app;
