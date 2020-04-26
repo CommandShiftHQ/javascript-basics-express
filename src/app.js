@@ -70,11 +70,8 @@ app.post('/numbers/multiply', (req, res) => {
 
   if (Number.isNaN(prod)) {
     res.status(400).json({ error: 'Parameters "a" and "b" must be valid numbers.' });
-  } 
-  
-  else {
+  } else {
     res.status(200).json({ result: prod });
   }
-
 });
 module.exports = app;
