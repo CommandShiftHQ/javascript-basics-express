@@ -160,9 +160,16 @@ app.post ('/arrays/starts-with-vowel', (req, res) => {
 });
 
 app.post('/arrays/remove-element', (req, res) => {
-    //const query = req.params.param1.index;
-    const newIndex = parseInt(req.body.index);
-    const newarr = arr.removeNthElement2(newIndex, req.body.array);//worked with 0
+    if (!req.body.query){
+    const newarr = arr.removeNthElement2(0, req.body.array);
     res.status(200).json({ result: newarr});
+    }
+
+    else{//NOT WORKING:
+    const newIndex = parseInt(req.params.index); //.query
+    const newarr = arr.removeNthElement2(newIndex, req.body.array);
+    res.status(200).json({ result: newarr});
+
+    }
 })
 module.exports = app;
