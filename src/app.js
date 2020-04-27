@@ -137,18 +137,32 @@ app.get('/booleans/:param1/starts-with/:param2', (req, res) => {
 });
 //----------------------------------------------------
 
-app.post('/arrays/element-at-index/:param1', (req,res) => {
-    
-    const element = arr.getNthElement(req.params.param1, req.body.array);
-    res.status(200).json({ result: element });
-
-
-})
+app.post('/arrays/element-at-index/:param1', (req, res) => {
+  const element = arr.getNthElement(req.params.param1, req.body.array);
+  res.status(200).json({ result: element });
+});
 
 app.post('/arrays/to-string', (req, res) => {
-  // const newarr = Object.values(req.body);
   const stringified = arr.arrayToCSVString(req.body.array);
 
   res.status(200).json({ result: stringified });
 });
+
+app.post('/arrays/append', (req, res) => {
+  const newarr = arr.addToArray2(req.body.value, req.body.array);
+  res.status(200).json({ result: newarr });
+});
+
+app.post ('/arrays/starts-with-vowel', (req, res) => {
+    const elements = arr.elementsStartingWithAVowel(req.body.array);
+    res.status(200).json({ result: elements });
+
+});
+
+app.post('/arrays/remove-element', (req, res) => {
+    //const query = req.params.param1.index;
+    const newIndex = parseInt(req.body.index);
+    const newarr = arr.removeNthElement2(newIndex, req.body.array);//worked with 0
+    res.status(200).json({ result: newarr});
+})
 module.exports = app;
