@@ -5,8 +5,10 @@ const bool = require('./lib/booleans.js');
 const arr = require('./lib/arrays.js');
 
 const app = express();
+const bodyParser = require('body-parser');
 
 app.use(express.json()); // FOR POST
+app.use(bodyParser.json());
 
 app.get('/strings/hello/:basename', (req, res) => {
   const word = strings.sayHello(req.params.basename);
@@ -160,16 +162,16 @@ app.post ('/arrays/starts-with-vowel', (req, res) => {
 });
 
 app.post('/arrays/remove-element', (req, res) => {
-    if (!req.body.query){
+    //const index = req.query.index || 0;
+    if (!req.query.index){
     const newarr = arr.removeNthElement2(0, req.body.array);
     res.status(200).json({ result: newarr});
     }
 
-    else{//NOT WORKING:
-    const newIndex = parseInt(req.params.index); //.query
+    else{
+    const newIndex = parseInt(req.query.index);
     const newarr = arr.removeNthElement2(newIndex, req.body.array);
-    res.status(200).json({ result: newarr});
-
+    res.status(200).json({ result: newarr });
     }
 })
 module.exports = app;
