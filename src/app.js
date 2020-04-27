@@ -29,14 +29,19 @@ app.get('/strings/lower/:basename', (req, res) => {
 });
 
 app.get('/strings/first-characters/:basename', (req, res) => {
-  if (req.query.length) {
+
+    const length = req.query.length ? parseInt(req.query.length) : 1;
+    const word = strings.firstCharacters(req.params.basename, length);
+    res.json({ result: `${word}` }).sendStatus(200);
+
+  /*if (req.query.length) {
     const n = parseInt(Object.values(req.query).join());
     const word = strings.firstCharacters(req.params.basename, n);
     res.json({ result: `${word}` }).sendStatus(200);
   } else {
     const word = strings.firstCharacter(req.params.basename);
     res.json({ result: `${word}` }).sendStatus(200);
-  }
+  }*/
 });
 //-----------------------------------------------
 app.get('/numbers/add/:param1/and/:param2', (req, res) => {
@@ -66,13 +71,15 @@ app.get('/numbers/subtract/:param1/from/:param2', (req, res) => {
 });
 //--------------------------------------------------
 app.post('/numbers/multiply', (req, res) => {
-  const arr = Object.values(req.body);
+  //const arr = Object.values(req.body);
+  const num1 = parseInt(req.body.a);
+  const num2 = parseInt(req.body.b);
 
-  const prod = numbers.multiply(arr[0], arr[1]);
-  if (arr.length !== 2) {
+  const prod = numbers.multiply(num1, num2);
+
+  if (!req.body.a || !req.body.b) {
     res.status(400).json({ error: 'Parameters "a" and "b" are required.' });
   }
-
   if (Number.isNaN(prod)) {
     res.status(400).json({ error: 'Parameters "a" and "b" must be valid numbers.' });
   } else {
@@ -162,7 +169,10 @@ app.post ('/arrays/starts-with-vowel', (req, res) => {
 });
 
 app.post('/arrays/remove-element', (req, res) => {
-    //const index = req.query.index || 0;
+    const index = req.query.index ? parseInt(req.query.index) : 0;
+    res.status(200).json({ result: arr.removeNthElement2(index, req.body.array)});
+
+    /*
     if (!req.query.index){
     const newarr = arr.removeNthElement2(0, req.body.array);
     res.status(200).json({ result: newarr});
@@ -172,6 +182,6 @@ app.post('/arrays/remove-element', (req, res) => {
     const newIndex = parseInt(req.query.index);
     const newarr = arr.removeNthElement2(newIndex, req.body.array);
     res.status(200).json({ result: newarr });
-    }
+    }*/
 })
 module.exports = app;
