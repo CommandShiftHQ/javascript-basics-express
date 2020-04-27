@@ -35,8 +35,10 @@ src
 ## Running tests
 
 You can run tests with the `npm test` command.
+You can also use [Postman](https://www.postman.com/downloads/) to run GET/POST commands and see the outputs. 
+Before you run a command make sure you do `npm start` in node.
 
 ## Credits
 
 Copyright [Manchester Codes](https://github.com/MCRcodes). 
-Thank you Gaz & [Ian](https://github.com/ian-antking) for your invaluable help.
+Thank you Gaz, [Ian](https://github.com/ian-antking) & [Ersel](https://github.com/ersel) for your invaluable help.
