@@ -136,6 +136,15 @@ app.get('/booleans/:param1/starts-with/:param2', (req, res) => {
   } else res.status(200).json({ result: bool.startsWith(req.params.param2, req.params.param1) });
 });
 //----------------------------------------------------
+
+app.post('/arrays/element-at-index/:param1', (req,res) => {
+    
+    const element = arr.getNthElement(req.params.param1, req.body.array);
+    res.status(200).json({ result: element });
+
+
+})
+
 app.post('/arrays/to-string', (req, res) => {
   // const newarr = Object.values(req.body);
   const stringified = arr.arrayToCSVString(req.body.array);

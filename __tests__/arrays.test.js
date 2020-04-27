@@ -3,7 +3,7 @@ const app = require('../src/app');
 
 describe('/arrays', () => {
   describe('POST /element-at-index/{index}', () => {
-    xit('returns the element at the given index', done => {
+    it('returns the element at the given index', done => {
       request(app)
         .post('/arrays/element-at-index/2')
         .send({ array: ['cat', 'dog', 'elephant', 'fox'] })
