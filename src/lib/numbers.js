@@ -15,6 +15,7 @@ const multiply = (a, b) => {
 
 const divide = (a, b) => {
   // your code here
+  console.log (a/b);
   return a/b;
 };
 
