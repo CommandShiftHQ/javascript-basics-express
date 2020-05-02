@@ -53,7 +53,7 @@ const isSquare = a => {
 };
 
 const startsWith = (char, string) => {
-  return string.charAt(0) === "a";
+  return string.charAt(0) === char;
 };
 
 const containsVowels = string => {
@@ -79,5 +79,5 @@ module.exports = {
   isSquare,
   startsWith,
   containsVowels,
-  isLowerCase
+  isLowerCase,
 };
