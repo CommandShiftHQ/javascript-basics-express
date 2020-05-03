@@ -1,83 +1,62 @@
-const negate = a => {
+exports.negate = a => {
   return !a;
 };
 
-const both = (a, b) => {
+exports.both = (a, b) => {
   return a && b;
 };
 
-const either = (a, b) => {
+exports.either = (a, b) => {
   return a || b;
 };
 
-const none = (a, b) => {
+exports.none = (a, b) => {
   if (!a && !b) {
     return true;
   }
   return false;
 };
 
-const one = (a, b) => {
+exports.one = (a, b) => {
   return a != b;
 };
 
-const truthiness = a => {
-  if (a) {
-    return true;
-  }
-  return false;
+exports.truthiness = a => {
+  return !!a;
 };
 
-const isEqual = (a, b) => {
+exports.isEqual = (a, b) => {
   return a == b;
 };
 
-const isGreaterThan = (a, b) => {
+exports.isGreaterThan = (a, b) => {
   return a > b;
 };
 
-const isLessThanOrEqualTo = (a, b) => {
+exports.isLessThanOrEqualTo = (a, b) => {
   return a <= b;
 };
 
-const isOdd = a => {
-  return a % 2 != 0;
+exports.isOdd = a => {
+  return a % 2 !== 0;
 };
 
-const isEven = a => {
+exports.isEven = a => {
   return a % 2 == 0;
 };
 
-const isSquare = a => {
+exports.isSquare = a => {
   return Math.sqrt(a) % 1 === 0;
 };
 
-const startsWith = (char, string) => {
+exports.startsWith = (char, string) => {
   return string.charAt(0) === char;
 };
 
-const containsVowels = string => {
+exports.containsVowels = string => {
   return !!string.match(/[aeiou]/gi);
 };
 
-const isLowerCase = string => {
+exports.isLowerCase = string => {
   return string === string.toLowerCase();
-};
-
-module.exports = {
-  negate,
-  both,
-  either,
-  none,
-  one,
-  truthiness,
-  isEqual,
-  isGreaterThan,
-  isLessThanOrEqualTo,
-  isOdd,
-  isEven,
-  isSquare,
-  startsWith,
-  containsVowels,
-  isLowerCase,
 };

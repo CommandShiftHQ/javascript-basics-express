@@ -1,32 +1,23 @@
-const sayHello = string => {
-  return "Hello, " + string + "!";
+exports.sayHello = string => {
+  return 'Hello, ' + string + '!';
 };
 
-const uppercase = string => {
+exports.uppercase = string => {
   return string.toUpperCase();
 };
 
-const lowercase = string => {
+exports.lowercase = string => {
   return string.toLowerCase();
 };
 
-const countCharacters = string => {
+exports.countCharacters = string => {
   return string.length;
 };
 
-const firstCharacter = string => {
+exports.firstCharacter = string => {
   return string.charAt(0);
 };
 
-const firstCharacters = (string, n) => {
+exports.firstCharacters = (string, n) => {
   return string.slice(0, n);
-};
-
-module.exports = {
-  sayHello,
-  uppercase,
-  lowercase,
-  countCharacters,
-  firstCharacter,
-  firstCharacters
 };

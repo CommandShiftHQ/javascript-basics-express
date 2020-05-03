@@ -1,57 +1,43 @@
-const add = (a, b) => {
+exports.add = (a, b) => {
   return a + b;
 };
 
-const subtract = (a, b) => {
+exports.subtract = (a, b) => {
   return a - b;
 };
 
-const multiply = (a, b) => {
+exports.multiply = (a, b) => {
   return a * b;
 };
 
-const divide = (a, b) => {
+exports.divide = (a, b) => {
   return a / b;
 };
 
-const power = (a, b) => {
+exports.power = (a, b) => {
   return a ** b;
 };
 
-const round = a => {
+exports.round = a => {
   return Math.round(a);
 };
 
-const roundUp = a => {
+exports.roundUp = a => {
   return Math.ceil(a);
 };
 
-const roundDown = a => {
+exports.roundDown = a => {
   return Math.floor(a);
 };
 
-const absolute = a => {
+exports.absolute = a => {
   return Math.abs(a);
 };
 
-const quotient = (a, b) => {
+exports.quotient = (a, b) => {
   return ~~(a / b);
 };
 
-const remainder = (a, b) => {
+exports.remainder = (a, b) => {
   return a % b;
-};
-
-module.exports = {
-  add,
-  subtract,
-  multiply,
-  divide,
-  power,
-  round,
-  roundUp,
-  roundDown,
-  absolute,
-  quotient,
-  remainder
 };
