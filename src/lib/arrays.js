@@ -2,26 +2,25 @@ const getNthElement0 = (index, array) => {
   while (index >= array.length) {
     index -= array.length;
   }
-  return array[index]
+  return array[index];
 };
 // use remainder!
 const getNthElement = (index, array) => {
   let i = index % array.length;
-  return array[i]
+  return array[i];
 };
 
-const arrayToCSVString = array => array.join(",");
+const arrayToCSVString = array => array.join(',');
 // array.toString()
 
-const csvStringToArray = string => string.split(",");
+const csvStringToArray = string => string.split(',');
 
-const addToArray = (element, array) => {
+const addToArrayMutating = (element, array) => {
   array.push(element);
 };
 //push mutates original array
 
-
-const addToArray2 = (element, array) => [...array, element];
+const addToArray = (element, array) => [...array, element];
 const addToArray2Sol = (element, array) => array.concat([element]);
 //concat doesn't mutate original array
 
@@ -38,9 +37,10 @@ const uppercaseWordsInArray = strings => strings.map(string => string.toUpperCas
 const reverseWordsInArray = strings =>
   strings.map(string =>
     string
-      .split("")
+      .split('')
       .reverse()
-      .join(""));
+      .join(''),
+  );
 
 const onlyEven = numbers => numbers.filter(num => num % 2 === 0);
 
@@ -59,22 +59,22 @@ const removeNthElement2Sol = (index, array) => {
 //   return strings.filter(string => regex.test(string[0]));
 // };
 
-const elementsStartingWithAVowel = (strings) => {
-  let vowels = ["a", "e", "i", "o", "u"];
+const elementsStartingWithAVowel = strings => {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
   let items = [];
-  for (i = 0; i < vowels.length; i += 1) {
-    for (j = 0; j < strings.length; j++) {
-      word = strings[j].toLowerCase();
+  for (let i = 0; i < vowels.length; i++) {
+    for (let j = 0; j < strings.length; j++) {
+      const word = strings[j].toLowerCase();
       if (word.charAt(0) === vowels[i]) {
-        items.push(strings[j])
+        items.push(strings[j]);
       }
     }
   }
-  return items
-}
+  return items;
+};
 
-const elementsStartingWithAVowelSol = (strings) => {
-  const vowels = ["a", "e", "i", "o", "u"];
+const elementsStartingWithAVowelSol = strings => {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
 
   return strings.filter(word => {
     const firstLetter = word[0].toLowerCase();
@@ -82,35 +82,9 @@ const elementsStartingWithAVowelSol = (strings) => {
   });
 };
 
-const removeSpacesSol = (string) => string.split(" ").join("");
-const removeSpaces = string => string.split("").filter(elem => elem !== " ").join("");
+const removeSpaces = string => string.split(' ').join('');
 
-const removeSpaces1 = string => {
-  const split = string.split("");
-  console.log(split);
-  console.log(split.join(""));
-};
-
-const removeSpaces2 = string => {
-  const split = string.split(" ");
-  console.log(split);
-  console.log(split.join(""));
-};
-
-removeSpaces1("ONE this string has spaces");
-removeSpaces2("TWO this string has spaces");
-//  [
-//   "O", "N", "E", " ", "t", "h",
-//   "i", "s", " ", "s", "t", "r",
-//   "i", "n", "g", " ", "h", "a",
-//   "s", " ", "s", "p", "a", "c",
-//   "e", "s"
-// ]
-// ONE this string has spaces
-// [ "TWO", "this", "string", "has", "spaces" ]
-// TWOthisstringhasspaces
-
-const removeSpacesRegex = string => string.replace(/\s/g, "");
+const removeSpacesRegex = string => string.replace(/\s/g, '');
 
 const sumNumbers = numbers => numbers.reduce((total, num) => total + num);
 
@@ -131,22 +105,20 @@ const sortByLastLetter = strings => {
 const sortByLastLetterSol = strings => {
   const reverseString = item =>
     item
-      .split("")
+      .split('')
       .reverse()
-      .join("");
+      .join('');
   return strings
     .map(reverseString)
     .sort()
     .map(reverseString);
 };
 
-
 module.exports = {
   getNthElement,
   arrayToCSVString,
   csvStringToArray,
   addToArray,
-  addToArray2,
   removeNthElement,
   numbersToStrings,
   uppercaseWordsInArray,
@@ -156,5 +128,5 @@ module.exports = {
   elementsStartingWithAVowel,
   removeSpaces,
   sumNumbers,
-  sortByLastLetter
+  sortByLastLetter,
 };

@@ -19,7 +19,6 @@ const one = (a, b) => {
   return Boolean(a && !b || !a && b);
 };
 
-
 const truthiness = a => {
   return Boolean(a);
 };
@@ -37,7 +36,7 @@ const isLessThanOrEqualTo = (a, b) => {
 };
 
 const isOdd = a => {
-  return (a % 2) > 0;
+  return a % 2 > 0;
 };
 
 const isEven = a => {
