@@ -8,6 +8,7 @@ const arraysRouter = require('./routes/arrays-router.js');
 const app = express();
 
 app.use(express.json());
+
 app.use('/strings', stringsRouter);
 app.use('/numbers', numbersRouter);
 app.use('/booleans', booleansRouter);
