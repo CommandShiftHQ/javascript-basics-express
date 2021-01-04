@@ -24,7 +24,7 @@ In the `lib` folder you can find all the functions that have been made available
 
 This project came with pre-written tests you can find in the `__tests__` folder. These tests use [supertest](https://www.npmjs.com/package/supertest) to make requests to our server and return the result for verification. This type of testing is called end-to-end (E2E) because it tests a process from start to finish.  In this case, that means from the client's request to, for example, remove the 4th element from an array, through to the response given, which would be the array with the 4th element removed.
 
-To pass the tests, the task was to create a web server, and set up routes and controller functions. At first everything was written in `app.js` but the routes and controllers were later separated out into separate files and folders to practise organizing a project more modularly. In order to maintain routing for the app, middleware functions (`app.use...`) are employed.
+To pass the tests, the task was to create a web server, and set up routes and controller functions. At first I wrote everything in `app.js`, but later I separated out the routes and controllers into separate files and folders to practise organizing a project more modularly. In order to maintain routing for the app, middleware functions (`app.use...`) are employed.
 
 In the `routes` folder the paths are set and the relevant controller function passed in. Controller functions are responsible for grabbing the data from the request and passing it to a business logic function and returning the result, i.e., the response.
 
