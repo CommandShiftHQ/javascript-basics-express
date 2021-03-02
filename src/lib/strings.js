@@ -1,37 +1,36 @@
 const sayHello = string => {
-  return 'Hello, ' + string + '!';
+  return `Hello, ${string}!`;
   console.log(sayHello());
 };
 
-
 const uppercase = string => {
-  let x = string.toUpperCase();
+  const x = string.toUpperCase();
   return x;
   console.log(x);
 };
 
 const lowercase = string => {
-  let x = string.toLowerCase();
+  const x = string.toLowerCase();
   return x;
   console.log(x);
 };
 
 const countCharacters = string => {
-  let x = string.length;
+  const x = string.length;
   return x;
   console.log(x);
 };
 
 const firstCharacter = string => {
-  let x = string.charAt(0);
+  const x = string.charAt(0);
   return x;
   console.log(x);
 };
 
 const firstCharacters = (string, n) => {
-let x = string.substring(0,n);
-return x; 
-console.log(x);
+  const x = string.substring(0, n);
+  return x;
+  console.log(x);
 };
 
 module.exports = {
@@ -40,5 +39,5 @@ module.exports = {
   lowercase,
   countCharacters,
   firstCharacter,
-  firstCharacters
+  firstCharacters,
 };
