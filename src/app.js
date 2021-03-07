@@ -1,5 +1,5 @@
 const express = require('express');
-const { sayHello, uppercase, lowercase, firstCharacter } = require('./lib/strings');
+const { sayHello, uppercase, lowercase, firstCharacters } = require('./lib/strings');
 
 const app = express();
 
@@ -19,11 +19,19 @@ app.get('/strings/first_character/:string', (req, res) => {
   res.status(200).json({ result: lowercase(req.params.string) });
 });
 
-app.get('/strings/first-characters/:id', (req, res) => {
+/* app.get('/strings/first-characters/:id', (req, res) => {
   if (req.query.length === 'undefined') {
-    res.json({ result: firstCharacter(req.params.id, 0) });
+    res.json({ result: firstCharacters(req.params.id, 0) });
   } else {
-    res.json({ result: firstCharacter(req.params.id, req.query.length) });
+    res.json({ result: firstCharacters(req.params.id, req.query.length) });
+  }
+}); */
+
+app.get('/strings/first-characters/:id', (req, res) => {
+  if (typeof req.query.length === 'undefined') {
+    res.status(200).json({ result: firstCharacters(req.params.id, 1) });
+  } else {
+    res.status(200).json({ result: firstCharacters(req.params.id, req.query.length) });
   }
 });
 
