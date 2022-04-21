@@ -19,5 +19,17 @@
     "nodemon": "^1.18.7",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2"
-  }
+  },
+  "description": "## Getting started",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ste-lomax/javascript-basics-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ste-lomax/javascript-basics-express/issues"
+  },
+  "homepage": "https://github.com/ste-lomax/javascript-basics-express#readme"
 }
