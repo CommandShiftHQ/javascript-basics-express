@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "2c9a95ab-aea1-4c26-bf85-4b288b4b9063",
+		"name": "ManchesterCodes: JavaScript Basics Express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13647537"
+	},
+	"item": [
+		{
+			"name": "GET  strings/hello/turtle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/strings/hello/turtle",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"strings",
+						"hello",
+						"turtle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET strings/hello/world",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/strings/hello/world",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"strings",
+						"hello",
+						"world"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
