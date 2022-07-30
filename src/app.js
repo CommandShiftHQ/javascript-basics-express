@@ -4,9 +4,9 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/strings/hello/world', (req, res) => {
+app.get('/strings/hello/:string', (req, res) => {
   return res.status(200).json({
-    result: `Hello, world!`,
+    result: `Hello, ${req.params.string}!`,
   });
 });
 
