@@ -13,6 +13,11 @@ router
       result: req.params.string.toUpperCase(),
     });
   })
+  .get('/lower/:string', (req, res) => {
+    return res.status(200).json({
+      result: req.params.string.toLowerCase(),
+    });
+  })
 });
 
 module.exports = router;

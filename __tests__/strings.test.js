@@ -39,7 +39,7 @@ describe('/strings', () => {
   });
 
   describe('GET /lower/{string}', () => {
-    xit('returns the lowercased string', done => {
+    it('returns the lowercased string', done => {
       request(app)
         .get('/strings/lower/HELLO')
         .then(res => {
