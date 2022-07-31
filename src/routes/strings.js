@@ -19,8 +19,11 @@ router
     });
   })
   .get('/first-characters/:string', (req, res) => {
+    const { string } = req.params;
+    const length = req.query.length || 1;
+    const slice = string.slice(0, length);
     return res.status(200).json({
-      result: req.params.string.charAt(0),
+      result: slice,
     });
   })
 });
