@@ -1,7 +1,5 @@
 const { Router } = require('express');
-const {
-  add,
-} = require('../lib/numbers');
+const { add } = require('../lib/numbers');
 
 const router = Router();
 
