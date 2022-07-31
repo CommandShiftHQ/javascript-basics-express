@@ -23,7 +23,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('adds 10 and -5', done => {
+    it('adds 10 and -5', done => {
       request(app)
         .get('/numbers/add/10/and/-5')
         .then(res => {
