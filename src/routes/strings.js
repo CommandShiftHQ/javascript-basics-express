@@ -25,7 +25,6 @@ router
     return res.status(200).json({
       result: slice,
     });
-  })
-});
+  });
 
 module.exports = router;
