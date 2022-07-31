@@ -1,29 +1,41 @@
 const { Router } = require('express');
 
+const {
+  sayHello,
+  uppercase,
+  lowercase,
+  firstCharacter,
+  firstCharacters,
+} = require('../lib/strings');
+
 const router = Router();
 
 router
   .get('/hello/:string', (req, res) => {
     return res.status(200).json({
-      result: `Hello, ${req.params.string}!`,
+      result: sayHello(req.params.string),
     });
   })
   .get('/upper/:string', (req, res) => {
     return res.status(200).json({
-      result: req.params.string.toUpperCase(),
+      result: uppercase(req.params.string),
     });
   })
   .get('/lower/:string', (req, res) => {
     return res.status(200).json({
-      result: req.params.string.toLowerCase(),
+      result: lowercase(req.params.string),
     });
   })
   .get('/first-characters/:string', (req, res) => {
     const { string } = req.params;
-    const length = req.query.length || 1;
-    const slice = string.slice(0, length);
+    const { length } = req.query;
+    if (!length) {
+      return res.status(200).json({
+        result: firstCharacter(string),
+      });
+    }
     return res.status(200).json({
-      result: slice,
+      result: firstCharacters(string, length),
     });
   });
 
