@@ -18,6 +18,11 @@ router
       result: req.params.string.toLowerCase(),
     });
   })
+  .get('/first-characters/:string', (req, res) => {
+    return res.status(200).json({
+      result: req.params.string.charAt(0),
+    });
+  })
 });
 
 module.exports = router;
