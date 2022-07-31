@@ -3,7 +3,7 @@ const app = require('../src/app');
 
 describe('/numbers', () => {
   describe('GET /add/{number}/and/{number}', () => {
-    xit('adds 2 and 1', done => {
+    it('adds 2 and 1', done => {
       request(app)
         .get('/numbers/add/2/and/1')
         .then(res => {
