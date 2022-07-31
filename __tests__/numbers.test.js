@@ -13,7 +13,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('adds 12 and 0', done => {
+    it('adds 12 and 0', done => {
       request(app)
         .get('/numbers/add/12/and/0')
         .then(res => {
