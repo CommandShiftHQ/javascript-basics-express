@@ -33,7 +33,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', done => {
+    it('errors if the parameters are not numbers', done => {
       request(app)
         .get('/numbers/add/fish/and/chips')
         .then(res => {
@@ -65,7 +65,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', done => {
+    it('errors if the parameters are not numbers', done => {
       request(app)
         .get('/numbers/subtract/fish/from/chips')
         .then(res => {
@@ -88,7 +88,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('multiplies stringified numbers', done => {
+    it('multiplies stringified numbers', done => {
       request(app)
         .post('/numbers/multiply')
         .send({ a: '-4', b: '-9' })
@@ -110,7 +110,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', done => {
+    it('errors if the parameters are not numbers', done => {
       request(app)
         .post('/numbers/multiply')
         .send({ a: 'fish', b: 'chips' })
