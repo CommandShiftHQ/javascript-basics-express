@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "test": "jest"
+    "test:unit": "jest"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
