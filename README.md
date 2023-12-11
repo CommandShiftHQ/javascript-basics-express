@@ -6,9 +6,19 @@ Ensure your Visual Studio Code application is up to date, and that you have the 
 
 Run the commands below inside your `Projects` folder.
 
+If you have set up an SSH key in your Github Account then feel free to clone this repo using SSH as follows:
 ```bash
-git clone git@github.com:CommandShiftHQ/javascript-basics-express
-cd your-project-folder-name
+git clone git@github.com:CommandShiftHQ/javascript-basics-express.git
+```
+
+Otherwise clone is as you normally would by URL with
+```bash
+git clone https://github.com/CommandShiftHQ/javascript-basics-express
+```
+
+Once cloned ensure you install its dependencies:
+```
+cd javascript-basics-express
 npm install
 ```
 
