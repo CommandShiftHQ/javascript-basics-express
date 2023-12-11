@@ -17,8 +17,10 @@ git clone https://github.com/CommandShiftHQ/javascript-basics-express
 ```
 
 Once cloned ensure you install its dependencies:
-```
+```bash
 cd javascript-basics-express
+```
+```bash
 npm install
 ```
 
